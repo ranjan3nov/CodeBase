@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form onsubmit="return validate()">
+        <input type="text" name="name" id="name">
+        <input type="number" name="mobile" id="mobile">
+        <input type="email" name="email" id="email">
+       <input type="number" name="age" id="age">
+       <button type="submit">submit</button>
+    </form>
+
+    <script>
+        function validate(){
+            var name = document.getElementById("name").value;
+            var mobile = document.getElementById("mobile").value;
+            var email = document.getElementById("email").value;
+            var age = document.getElementById("age").value;
+            if(name == "" || mobile == "" || email == "" || age == ""){
+                alert("please fill all the fields");
+                return false;
+            }
+            else if(name.length < 3){
+                alert("name should be more than 3 characters");
+                return false;
+            }
+            else if(isNaN(mobile) || mobile.length != 10){
+                alert("mobile number should be 10 digits");
+                return false;
+            }
+            else if(isNaN(age)){
+                alert("age should be more than 18");
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>
